@@ -1,54 +1,74 @@
 .header {
-  padding: 10px;
-  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tex-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 400px;
 }
 
-.header .navbar {
+.textInput {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100px;
+  position: relative;
+  margin-top: 30px;
 }
 
-.header .navbar__logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 40px;
+.textInput__label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  content: attr(label);
+  background-color: inherit;
+  color: blue;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
-.header .navbar__logo__img {
-  width: 60px;
-  height: 25px;
-}
-
-.header .navbar_item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  margin-left: auto;
-  list-style: none;
-}
-
-.header .navbar_item__items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.textInput__field {
+  font-size: 18px;
+  outline: 1px solid blue;
+  border: none;
   padding: 10px;
+  border-radius: 5px;
 }
 
-.header .navbar_item__items .link {
-  font-family: sans-serif;
-  text-decoration: none;
+.textInput__field:focus {
+  outline-width: 2px;
+}
+
+.textInput__field:focus + .textInput__label {
+  top: 0;
+  left: 10px;
+  -webkit-transform: translate(0, -70%);
+          transform: translate(0, -70%);
+  background-color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.textInput__message {
+  width: 100%;
+  color: red;
+  font-size: 17px;
 }
 /*# sourceMappingURL=Header.css.map */

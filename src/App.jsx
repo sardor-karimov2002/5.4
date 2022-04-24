@@ -1,19 +1,25 @@
 import "./App.scss"
-import Footer from "./components/Footer/Footer"
-import Header from "./components/Header/Header"
-import Main from "./components/Main/Title";
-// class -> className
-// for -> htmlFor
-// snake case -> camelCase
-
+import Header from "./components/Header/Header";
+import Modal from "./components/Modal/Modal"
+import {useRef, useState} from 'react';
 function App() {
-  
+  const modalRef=useRef();
+  const toggleModal=()=>{
+    modalRef.current.classList.toggle('modal__open')
+    modalRef.current.addEventListener("click", cloceModal)
+  }
+  const cloceModal=(event)=>{
+    modalRef.current.classList.remove("modal__open");
+      if(event.target===modalRef.current){
+        modalRef.current.classList.remove('modal__open');
+        modalRef.current.removeEventListener("click", cloceModal)
+      }
+  }
   return (
     <div className="App">
       <Header />
-      <Footer />
-      <Main />
- 
+      <Modal reference={modalRef} />
+      <button onClick={toggleModal}>Toggle Modal </button>
   </div>
   )
  }

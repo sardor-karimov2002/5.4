@@ -1,33 +1,51 @@
 .header{
-    padding: 10px;
-    margin: 10px 0;
+display: flex;
+    
+}
+.tex-box{
+    display: flex;
     align-items: center;
-    .navbar{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        &__logo{
-            display: flex;
-            margin-left: 40px;
-            &__img{
-                width: 60px;
-                height:25px;
-            }
+    justify-content: center ;
+    width: 400px;
+}
+
+.textInput{
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    min-height: 100px;
+    position: relative;
+    margin-top: 30px;
+    &__label{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        content: attr(label);
+        background-color: inherit;
+        color: blue;
+        transition: all .5s ease-in-out;
+    }
+    &__field{
+        font-size: 18px;
+        outline: 1px solid blue;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        &:focus{
+            outline-width: 2px;
         }
-        &_item{
-            display: flex;
-            justify-content: start;
-            margin-left: auto;
-            list-style: none;
-            &__items{
-                display: flex;
-                padding: 10px;
-                .link{
-                    font-family: sans-serif;
-                    text-decoration: none;
-                }
-            }
+        &:focus + .textInput__label{
+            top: 0;
+            left: 10px;
+            transform: translate(0 ,-70%);
+            background-color: white;
+            padding: 5px;
+            font-size: 12px;
         }
     }
-    
+    &__message{
+        width: 100%;
+        color: red;
+        font-size: 17px;
+    }
 }
